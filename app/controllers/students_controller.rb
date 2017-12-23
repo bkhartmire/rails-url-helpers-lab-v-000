@@ -11,12 +11,10 @@ class StudentsController < ApplicationController
 
   def activate
     set_student
-    if @student.active == true
-      @student.active == false
-    else
+    if @student.active == false
       @student.active == true
+      @student.save
     end
-    @student.save
     redirect "/students/#{@student.id}"
   end
 
